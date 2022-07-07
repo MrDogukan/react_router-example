@@ -1,11 +1,15 @@
-import Footer from './components/Footer';
-import Nav from './components/Nav';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import Instructors from './pages/Instructors';
-import NotFound from './pages/NotFound';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import InstructorDetail from './pages/InstructorDetail';
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Instructors from "./pages/Instructors";
+import NotFound from "./pages/NotFound";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import InstructorDetail from "./pages/InstructorDetail";
+import Paths from "./pages/Paths";
+import FullStack from "./pages/FullStack";
+import Aws from "./pages/Aws";
+// import { Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -16,6 +20,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/instructors" element={<Instructors />} />
           <Route path="/instructors/:id" element={<InstructorDetail />} />
+
+          <Route path="/paths" element={<Paths />}>
+            <Route index element={<FullStack />} />
+            <Route path="fullstack" index element={<FullStack />} />
+            <Route path="aws" element={<Aws />} />
+          </Route>
+
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
